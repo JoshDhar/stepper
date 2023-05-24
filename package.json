@@ -16,13 +16,9 @@
     "@react-google-maps/api": "^2.18.1",
     "axios": "^1.4.0",
     "react": "^18.2.0",
-    "react-cool-onclickoutside": "^1.7.0",
     "react-dom": "^18.2.0",
-    "react-google-autocomplete": "^2.7.3",
-    "react-google-places-autocomplete": "^4.0.1",
     "react-material-ui-form-validator": "^3.0.1",
-    "react-places-autocomplete": "^7.3.0",
-    "use-places-autocomplete": "^4.0.0"
+    "react-places-autocomplete": "^7.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
