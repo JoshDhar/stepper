@@ -94,7 +94,13 @@ const App = () => {
           </Step>
         ))}
       </Stepper>
-      <Grid container direction="column" alignItems="center" spacing={2}>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        spacing={2}
+        marginTop={8}
+      >
         <Grid item xs={12}>
           <ValidatorForm
             style={{ width: "100%" }}

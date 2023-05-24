@@ -1,56 +1,10 @@
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-  geocodeByPlaceId,
-} from "react-places-autocomplete";
+import React from "react";
+import PlacesAutocomplete from "react-places-autocomplete";
+import useSecondStep from "./useSecondStep";
 
 const SecondStep = ({ handleAddress, formData, validatorListener }) => {
-  const [address, setAddress] = useState("");
-
-  useEffect(() => {
-    console.log(address);
-  }, [address]);
-
-  const handleSelect = async (address, placeId) => {
-    setAddress(address);
-
-    const results = await geocodeByAddress(address);
-
-    const latLng = await getLatLng(results[0]);
-
-    const [place] = await geocodeByPlaceId(placeId);
-
-    const { long_name: pinCode = "" } =
-      place?.address_components.find((c) => c.types.includes("postal_code")) ||
-      {};
-
-    const { long_name: state = "" } =
-      place?.address_components.find((c) =>
-        c.types.includes("administrative_area_level_1")
-      ) || {};
-
-    const { long_name: country = "" } =
-      place?.address_components.find((c) => c.types.includes("country")) || {};
-
-    const { long_name: city = "" } =
-      place?.address_components.find((c) =>
-        c.types.includes("administrative_area_level_3")
-      ) || {};
-
-    const updatedAddress = {
-      addressLine1: place?.address_components?.[0]?.long_name,
-      addressLine2: place?.address_components?.[1]?.long_name,
-      state,
-      city,
-      country,
-      pinCode,
-      latLng,
-    };
-
-    handleAddress(updatedAddress);
-  };
+  const { address, setAddress, handleSelect } = useSecondStep(handleAddress);
 
   return (
     <>

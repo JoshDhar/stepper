@@ -1,5 +1,4 @@
 import React from "react";
-
 import { TextValidator } from "react-material-ui-form-validator";
 
 const FirstStep = ({ handleChange, formData, validatorListener }) => {

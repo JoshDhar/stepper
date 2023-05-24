@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import React from "react";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 
 const MapView = ({ formData }) => {
   const containerStyle = {
@@ -12,13 +11,10 @@ const MapView = ({ formData }) => {
     lat: 0,
     lng: 0,
   };
-  const onLoad = (marker) => {
-    console.log("marker: ", marker);
-  };
 
   return (
     <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
-      <Marker onLoad={onload} position={formData?.latLng} />
+      <Marker onLoad={onload} position={{ lat: 0, lng: 0 }} />
     </GoogleMap>
   );
 };
